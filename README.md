@@ -6,7 +6,7 @@ https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/
 
 > Plug into USB2 port by the edge of the board  
 ```shell
-ln -s /dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_90F00149-if00-port0 /dev/zwave
+sudo ln -s /dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_90F00149-if00-port0 /dev/zwave
 ```
 
 ### Z-Stick Gen5
@@ -14,7 +14,7 @@ https://aeotec.com/z-wave-usb-stick/index.html
 
 > Plug into USB3 port by ethernet port
 ```shell
-ln -s /dev/serial/by-id/usb-0658_0200-if00 /dev/zwave
+sudo ln -s /dev/serial/by-id/usb-0658_0200-if00 /dev/zwave
 ```
 
 ## Software
