@@ -18,8 +18,10 @@ sudo ln -s /dev/serial/by-id/usb-0658_0200-if00 /dev/zwave
 ```
 
 ## Software
+
 ### Docker
 Container runtime for applications
+
 #### Installation
 ```shell
 curl -fsSL https://get.docker.com -o get-docker.sh
@@ -28,17 +30,51 @@ sudo sh get-docker.sh
 
 ### Z-Wave JS
 Z Wave JS Driver
+
+#### Prerequisites
+* Hardware
+
 #### Configuration
 ```shell
 mkdir -p $HOME/.config/zwave-js
 ```
 
+#### Run
+```shell
+bin/runDockerZWaveJS2MQTT.sh
+```
+
+
 ### Home Assistant
 Home Automation suite
+
+#### Prerequisites
+* Z-Wave JS
+
 #### Configuration
 ```shell
 mkdir -p $HOME/.config/homeassistant
 ```
+#### Run
+```shell
+bin/runDockerHomeAssistant.sh
+```
+
+### WireGuard
+VPN
+
+#### Configuration
+```shell
+mkdir -p $HOME/.config/wireguard
+```
+
+#### Run
+```shell
+bin/runDockerWireGuard.sh
+```
+
+#### WAN
+Forward port 51820 from your router to your raspberry pi ip
 
 ### Rhasspy
 Voice-to-text and text-to-voice suite
@@ -46,3 +82,10 @@ Voice-to-text and text-to-voice suite
 ```shell
 mkdir -p $HOME/.config/rhasspy/profiles
 ```
+
+#### Run
+```shell
+bin/runDockerWireGuard.sh
+```
+
+
