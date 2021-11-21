@@ -3,13 +3,17 @@
 docker stop wireguard || true
 docker rm wireguard || true
 
+if [ -z "$SERVERURL" ]; then
+	SERVERURL="$(host myip.opendns.com resolver1.opendns.com|tail -1|awk '{ print $4 }')"
+fi
+
 docker run -d \
 	--name=wireguard \
 	--cap-add=NET_ADMIN \
 	--cap-add=SYS_MODULE \
 	-e PUID=1000 \
 	-e PGID=1000 \
-	-e SERVERURL=wireguard.domain.com `#optional` \
+	-e SERVERURL=$SERVERURL `#optional` \
 	-e SERVERPORT=51820 `#optional` \
 	-e PEERS=1 `#optional` \
 	-e PEERDNS=auto `#optional` \

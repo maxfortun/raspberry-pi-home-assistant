@@ -76,6 +76,17 @@ bin/runDockerWireGuard.sh
 #### WAN
 Forward port 51820 from your router to your raspberry pi ip
 
+#### Setup clients
+Specify a peer/client id that you want to setup in variable `PEER_ID`.
+
+```shell
+PEER_ID=1
+docker exec -it wireguard /app/show-peer $PEER_ID
+```
+
+Download and install a WireGuard app to your `camera-enabled device`, then use it to scan the QR code displayed by the above command.
+
+
 ### Rhasspy
 Voice-to-text and text-to-voice suite
 #### Configuration
@@ -85,7 +96,7 @@ mkdir -p $HOME/.config/rhasspy/profiles
 
 #### Run
 ```shell
-bin/runDockerWireGuard.sh
+bin/runDockerRhasspy.sh.sh
 ```
 
 
