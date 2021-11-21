@@ -7,6 +7,23 @@ if [ -z "$SERVERURL" ]; then
 	SERVERURL="$(host myip.opendns.com resolver1.opendns.com|tail -1|awk '{ print $4 }')"
 fi
 
+ifs="eth0 wlan0"
+for if in $ifs; do
+	read inet_ inet netmask_ netmask broadcast_ broadcast < <( ifconfig $if | grep "inet " || true ) || true
+	if [ -n "$broadcast" ]; then
+		break
+	fi
+done
+
+if [ -z "$broadcast" ]; then
+	echo "Failed to find a working network interface among $ifs"
+	exit 1
+fi
+
+if [ -z "$INTERNAL_SUBNET" ]; then
+	INTERNAL_SUBNET=$(ipcalc -nb $inet|grep ^Network:|awk '{ print $2 }'|sed 's/\/.*$//g')
+fi
+
 docker run -d \
 	--name=wireguard \
 	--cap-add=NET_ADMIN \

@@ -66,6 +66,7 @@ VPN
 #### Configuration
 ```shell
 mkdir -p $HOME/.config/wireguard
+sudo apt install -y ipcalc
 ```
 
 #### Run
