@@ -79,13 +79,19 @@ bin/runDockerWireGuard.sh
 1. Set your raspberry pi ip to static
 ```shell
 ip=$(ifconfig wlan0|grep "inet "|awk '{ print $2 }')
-cat <<_EOT_ >> /etc/dhcpcd.conf
+router=$(netstat -nr | grep ^0.0.0.0|awk '{ print $2 }')
+
+cat <<_EOT_ | tee -a /etc/dhcpcd.conf
 
 interface wlan0
 static ip_address=$ip/24
+static routers=$router
+static domain_name_servers=$router 8.8.8.8
 
 _EOT_
+
 ```
+Verify that values on the screen are reasonable, then reboot.
 
 1. Forward port 51820 from your router to your raspberry pi ip
 
