@@ -33,6 +33,7 @@ Z Wave JS Driver
 
 #### Prerequisites
 * Hardware
+* Docker
 
 #### Configuration
 ```shell
@@ -75,7 +76,18 @@ bin/runDockerWireGuard.sh
 ```
 
 #### WAN
-Forward port 51820 from your router to your raspberry pi ip
+1. Set your raspberry pi ip to static
+```shell
+ip=$(ifconfig wlan0|grep "inet "|awk '{ print $2 }')
+cat <<_EOT_ >> /etc/dhcpcd.conf
+
+interface wlan0
+static ip_address=$ip/24
+
+_EOT_
+```
+
+1. Forward port 51820 from your router to your raspberry pi ip
 
 #### Setup clients
 Specify a peer/client id that you want to setup in variable `PEER_ID`.
