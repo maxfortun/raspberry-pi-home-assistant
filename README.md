@@ -93,7 +93,7 @@ _EOT_
 ```
 Verify that values on the screen are reasonable, then reboot.
 
-1. Forward port 51820 from your router to your raspberry pi ip
+2. Forward port 51820 from your router to your raspberry pi ip
 
 #### Setup clients
 Specify a peer/client id that you want to setup in variable `PEER_ID`.
