@@ -1,7 +1,8 @@
 #!/bin/bash -ex
 
-docker stop home-assistant
-docker rm home-assistant
+docker stop home-assistant || true
+docker rm home-assistant || true
+
 docker run -d \
 	--privileged \
 	--restart=unless-stopped \

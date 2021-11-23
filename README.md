@@ -6,7 +6,8 @@ https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/
 
 > Plug into USB2 port by the edge of the board  
 ```shell
-sudo ln -s /dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_90F00149-if00-port0 /dev/zwave
+sudo sed -i 's#^exit 0#ln -s /dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_90F00149-if00-port0 /dev/zwave\nexit 0#' /etc/rc.local 
+sudo /etc/rc.local 
 ```
 
 ### Z-Stick Gen5
@@ -14,7 +15,8 @@ https://aeotec.com/z-wave-usb-stick/index.html
 
 > Plug into USB3 port by ethernet port
 ```shell
-sudo ln -s /dev/serial/by-id/usb-0658_0200-if00 /dev/zwave
+sudo sed -i 's#^exit 0#ln -s /dev/serial/by-id/usb-0658_0200-if00 /dev/zwave\nexit 0#' /etc/rc.local 
+sudo /etc/rc.local 
 ```
 
 ## Software
@@ -41,6 +43,11 @@ Z Wave JS Driver
 mkdir -p $HOME/.config/zwave-js
 ```
 
+1. Point your browser to http://ip.of.the.pi:8091/settings
+1. Disable MQTT Gateway
+1. Enable WS Server
+1. Scroll all the way down and click save in the lower right corner
+
 #### Run
 ```shell
 bin/runDockerZWaveJS2MQTT.sh
@@ -61,6 +68,11 @@ mkdir -p $HOME/.config/homeassistant
 ```shell
 bin/runDockerHomeAssistant.sh
 ```
+
+1. Point your browser to http://ip.of.the.pi:8123/config/integrations
+1. Click `ADD INTEGRATION` in lower right corner
+1. Select Z-Wave JS
+1. Save
 
 ### WireGuard
 VPN
