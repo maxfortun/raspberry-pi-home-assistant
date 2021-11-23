@@ -32,7 +32,7 @@ docker run -d \
 	-e PGID=1000 \
 	-e SERVERURL=$SERVERURL `#optional` \
 	-e SERVERPORT=51820 `#optional` \
-	-e PEERS=1 `#optional` \
+	-e PEERS=10 `#optional` \
 	-e PEERDNS=auto `#optional` \
 	-e INTERNAL_SUBNET=10.13.13.0 `#optional` \
 	-e ALLOWEDIPS=0.0.0.0/0 `#optional` \
