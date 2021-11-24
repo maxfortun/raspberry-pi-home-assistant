@@ -1,8 +1,10 @@
 # raspberry-pi-home-assistant
 
 ## Hardware
+
 ### HUSBZB
-https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/
+https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/  
+Protocols: Z-Wave, Zigbee  
 
 > Plug into USB2 port by the edge of the board  
 ```shell
@@ -12,12 +14,19 @@ sudo /etc/rc.local
 
 ### Z-Stick Gen5
 https://aeotec.com/z-wave-usb-stick/index.html  
+Protocols: Z-Wave  
 
 > Plug into USB3 port by ethernet port
 ```shell
 sudo sed -i 's#^exit 0#ln -s /dev/serial/by-id/usb-0658_0200-if00 /dev/zwave\nexit 0#' /etc/rc.local 
 sudo /etc/rc.local 
 ```
+
+### L-BDGPRO2-WH
+https://www.casetawireless.com/proproducts
+Supports Lutron Caseta devices  
+Protocols: Clear Connect RF  
+
 
 ## Software
 
