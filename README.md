@@ -23,7 +23,7 @@ sudo /etc/rc.local
 ```
 
 ### L-BDGPRO2-WH
-https://www.casetawireless.com/proproducts
+https://www.casetawireless.com/proproducts  
 Supports Lutron Caseta devices  
 Protocols: Clear Connect RF  
 
@@ -125,8 +125,8 @@ PEER_ID=1
 docker exec -it wireguard /app/show-peer $PEER_ID
 ```
 
-Download and install a WireGuard app to your `camera-enabled device`, then use it to scan the QR code displayed by the above command.
-
+Download and install a WireGuard app to your `camera-enabled device`, then use it to scan the QR code displayed by the above command.  
+Or, grab the keys and configs from `$HOME/.config/wireguard/peer$PEER_ID`  
 
 ### Rhasspy
 Voice-to-text and text-to-voice suite
