@@ -37,7 +37,7 @@ Container runtime for applications
 ```shell
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
-sudo usermod -aG docker pi
+sudo usermod -aG docker $USER
 ```
 
 ### Z-Wave JS
