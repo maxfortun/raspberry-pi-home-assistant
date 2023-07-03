@@ -47,6 +47,12 @@ Z Wave JS Driver
 * Hardware
 * Docker
 
+
+#### Run
+```shell
+bin/runDockerZWaveJS2MQTT.sh
+```
+
 #### Configuration
 ```shell
 mkdir -p $HOME/.config/zwave-js
@@ -56,11 +62,6 @@ mkdir -p $HOME/.config/zwave-js
 1. Disable MQTT Gateway
 1. Enable WS Server
 1. Scroll all the way down and click save in the lower right corner
-
-#### Run
-```shell
-bin/runDockerZWaveJS2MQTT.sh
-```
 
 
 ### Home Assistant
